@@ -61,3 +61,5 @@ jobs:
 
       - run: pip install pipenv
       - run: pipenv install --dev --skip-lock
+      - run: docker build --tag mp-backend:latest .
+      
