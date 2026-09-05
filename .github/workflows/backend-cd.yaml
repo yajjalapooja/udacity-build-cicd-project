@@ -122,3 +122,5 @@ jobs:
           kubectl rollout status deployment/backend --timeout=120s || true
           kubectl get pods -o wide
           kubectl get endpoints backend
+          kubectl get nodes -o wide
+          kubectl get events --sort-by=.lastTimestamp | tail -30
