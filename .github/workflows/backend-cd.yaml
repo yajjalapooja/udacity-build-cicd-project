@@ -119,3 +119,6 @@ jobs:
           ECR_REGISTRY=$ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com
           kustomize edit set image backend=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           kustomize build | kubectl apply -f -
+          kubectl rollout status deployment/backend --timeout=120s
+          kubectl get pods -o wide
+          kubectl get endpoints backend
